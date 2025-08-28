@@ -39,7 +39,7 @@ Follow these steps to set up the project on your local system:
 
 1. **Clone the Repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/FrostScythe/Patient-Management
    cd patient-management/patient-service
    ```
 
