@@ -3,6 +3,7 @@ package com.pm.patient_service.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -25,6 +26,7 @@ public class Patient {
     private String address;
 
     @NotNull
+    @Past(message = "Date of birth must be in the past")
     private LocalDate dateOfBirth;
 
     @NotNull

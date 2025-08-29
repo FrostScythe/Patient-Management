@@ -34,4 +34,14 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity.badRequest().body(errors);
     }
+
+    @ExceptionHandler(PatientNotFoundException.class)
+    public ResponseEntity<Map<String,String>> PatientNotFoundException(PatientNotFoundException ex){
+        log.warn("Patient not found: {}",ex.getMessage());
+
+        Map<String,String > errors =new HashMap<>();
+        errors.put("message",ex.getMessage());
+
+        return ResponseEntity.status(404).body(errors);
+    }
 }
