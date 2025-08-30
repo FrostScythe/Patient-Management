@@ -34,6 +34,7 @@ public class PatientController {
 
     // Create new patient
     @PostMapping("/addPatient")
+    @Operation(summary = "Create a new patient", description = "Add a new patient to the system with the provided details")
     public ResponseEntity<PatientResponseDTO> createPatient(@Validated({Default.class, CreatePatientValidationGroup.class}) @RequestBody PatientRequestDTO patientRequestDTO) {
         PatientResponseDTO patientResponseDTO = patientService.createPatient(patientRequestDTO);
 
@@ -42,6 +43,7 @@ public class PatientController {
 
     // Update existing patient
     @PutMapping("/updatePatient/{id}")
+    @Operation(summary = "Update an existing patient", description = "Update the details of an existing patient identified by their ID")
     public ResponseEntity<PatientResponseDTO> updatePatient(@PathVariable UUID id, @Validated({Default.class}) @RequestBody PatientRequestDTO patientRequestDTO) {
         PatientResponseDTO patientResponseDTO = patientService.updatePatient(id, patientRequestDTO);
         return ResponseEntity.ok().body(patientResponseDTO);
@@ -49,6 +51,7 @@ public class PatientController {
 
     //Delete Patient
     @DeleteMapping("/deletePatient/{id}")
+    @Operation(summary = "Delete a patient", description = "Remove a patient from the system using their ID")
     public ResponseEntity<Void> deletePatient(@PathVariable UUID id) {
         patientService.deletePatient(id);
         return ResponseEntity.noContent().build();
