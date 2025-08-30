@@ -1,0 +1,8 @@
+### Delete an entity
+
+DELETE http://localhost:8080/patients/deletePatient/{id}
+Content-Type: application/json
+
+###
+
+"id":"223e4567-e89b-12d3-a456-426614174013"
